@@ -19,7 +19,7 @@ public interface MateriaRepository extends JpaRepository<Materia, Long> {
     // Para verificar si existe otro código único al actualizar (excluyendo el ID actual)
     boolean existsByCodigoUnicoAndIdNot(String codigoUnico, Long id);
 
-    @Lock(LockModeType.PESSIMISTIC_WRITE) // Bloqueo pesimista para evitar condiciones de carrera
+    //@Lock(LockModeType.PESSIMISTIC_WRITE) // Bloqueo pesimista para evitar condiciones de carrera
     Optional<Materia> findById(Long id);
 
     List<Materia> findByDocenteId(Long docenteId);

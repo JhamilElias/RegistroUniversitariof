@@ -11,4 +11,7 @@ public interface IMateriaService {
     MateriaDTO crearMateria(MateriaDTO materia);
     MateriaDTO actualizarMateria(Long id, MateriaDTO materia);
     void eliminarMateria(Long id);
+    boolean formariaCirculo(Long materiaId, Long prerequisitoId);
+    boolean verificarCirculo(Long materiaId, Long prerequisitoId);
+     
 }

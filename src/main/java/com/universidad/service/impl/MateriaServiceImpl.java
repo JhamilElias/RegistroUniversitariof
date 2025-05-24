@@ -130,4 +130,15 @@ public class MateriaServiceImpl implements IMateriaService {
 
         return materia;
     }
+    public boolean formariaCirculo(Long materiaId, Long prerequisitoId) {
+    Materia materia = materiaRepository.findById(materiaId).orElseThrow();
+    return materia.formariaCirculo(prerequisitoId);
+}
+    @Override
+    public boolean verificarCirculo(Long materiaId, Long prerequisitoId) {
+        MateriaDTO materia = obtenerMateriaPorId(materiaId);
+        return materia != null && materia.formariaCirculo(prerequisitoId, this);
+    }
+
+
 }

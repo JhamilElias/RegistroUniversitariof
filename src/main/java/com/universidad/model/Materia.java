@@ -25,11 +25,11 @@ public class Materia implements Serializable {
     private static final long serialVersionUID = 1L;
 
     // Constructor to match the required signature
-    public Materia(Long id, String nombreMateria, String codigoUnico) {
+    /*public Materia(Long id, String nombreMateria, String codigoUnico) {
         this.id = id;
         this.nombreMateria = nombreMateria;
         this.codigoUnico = codigoUnico;
-    }
+    }*/
 
 
     @Id // Anotación que indica que este campo es la clave primaria

@@ -55,7 +55,7 @@ public class EvaluacionDocenteServiceImpl implements IEvaluacionDocenteService {
 
     
 
-    @Transactional
+    @Transactional(dontRollbackOn = Exception.class)
     public Materia asignarMateriaADocente(Long docenteId, Long materiaId) {
     Docente docente = docenteRepository.findById(docenteId)
         .orElseThrow(() -> new RuntimeException("Docente no encontrado"));

@@ -128,6 +128,7 @@ public class EvaluacionDocenteController {
      * Endpoint para eliminar la asignación de una materia
      * DELETE /api/docentes-materias/{materiaId}
      */
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @DeleteMapping("/{materiaId}")
     public ResponseEntity<Void> eliminarAsignacion(
             @PathVariable Long materiaId) {
@@ -143,6 +144,7 @@ public class EvaluacionDocenteController {
      * Endpoint para listar todas las asignaciones activas
      * GET /api/docentes-materias
      */
+    
     @GetMapping
     public ResponseEntity<List<Materia>> obtenerTodasAsignaciones() {
         try {

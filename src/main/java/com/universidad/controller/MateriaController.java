@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import io.swagger.v3.oas.annotations.Operation;
+import com.universidad.service.impl.MateriaServiceImpl;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.List;
@@ -93,7 +94,7 @@ public class MateriaController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/formaria-circulo/{materiaId}/{prerequisitoId}") // Endpoint para verificar si una materia formaría un círculo con un prerequisito
+    /*@GetMapping("/formaria-circulo/{materiaId}/{prerequisitoId}") // Endpoint para verificar si una materia formaría un círculo con un prerequisito
     @Transactional // Anotación que indica que este método debe ejecutarse dentro de una transacción
     public ResponseEntity<Boolean> formariaCirculo(@PathVariable Long materiaId, @PathVariable Long prerequisitoId) {
         MateriaDTO materiaDTO = materiaService.obtenerMateriaPorId(materiaId); // Obtiene la materia por su ID
@@ -108,5 +109,15 @@ public class MateriaController {
             return ResponseEntity.badRequest().body(circulo);
         }
         return ResponseEntity.ok(circulo);
+    }*/
+  
+
+    @GetMapping("/formaria-circulo/{materiaId}/{prerequisitoId}")
+    public ResponseEntity<Boolean> formariaCirculo(
+    @PathVariable Long materiaId, 
+    @PathVariable Long prerequisitoId
+    ) {
+    boolean circulo = materiaService.verificarCirculo(materiaId, prerequisitoId);
+    return ResponseEntity.ok(circulo);
     }
 }
